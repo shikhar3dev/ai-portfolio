@@ -3,217 +3,484 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shikhar Singh | AI Portfolio (Empty but Live)</title>
+  <meta name="description" content="Shikhar Singh - AI & Machine Learning Engineer. Portfolio, search intelligence capstone, and project case studies." />
+  <title>Shikhar Singh | AI & Machine Learning Portfolio</title>
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #0a0e17;
-      --card-bg: rgba(18, 24, 38, 0.8);
-      --border: rgba(255, 255, 255, 0.1);
+      --bg-primary: #0a0e1a;
+      --bg-secondary: #111827;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(99, 102, 241, 0.4);
+      --text-primary: #f9fafb;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
       --accent: #6366f1;
-      --accent-glow: rgba(99, 102, 241, 0.25);
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --gradient-brand: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #06b6d4 100%);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
 
     body {
-      background-color: var(--bg);
-      color: var(--text);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.6;
       min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.08) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* Header Nav */
+    header.nav-header {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      background-image: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 40%),
-                        radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.1), transparent 40%);
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 3.5rem;
     }
 
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 3rem 2.5rem;
-      max-width: 540px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    .nav-brand {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
     }
 
-    .badge {
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .btn-small {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600 !important;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-small:hover {
+      background: #4f46e5;
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-bottom: 4rem;
+    }
+
+    .status-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(16, 185, 129, 0.15);
-      color: #10b981;
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: var(--accent-emerald);
       padding: 0.35rem 0.85rem;
       border-radius: 9999px;
       font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
-    .badge-dot {
+    .status-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 8px #10b981;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 8px var(--accent-emerald);
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
+      50% { opacity: 0.4; transform: scale(0.85); }
     }
 
-    h1 {
-      font-size: 2.25rem;
+    h1.hero-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
     }
 
-    p.subtitle {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-      line-height: 1.5;
-    }
-
-    .info-box {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem;
-      text-align: left;
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .info-row:last-child {
-      border-bottom: none;
-    }
-
-    .info-label {
-      color: var(--text-muted);
-    }
-
-    .info-value {
-      color: var(--text);
+    p.hero-title {
+      font-size: 1.25rem;
+      color: var(--accent-cyan);
       font-weight: 500;
+      margin-bottom: 1.25rem;
     }
 
-    .links {
+    p.hero-bio {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    /* Quick Action Buttons */
+    .hero-actions {
       display: flex;
-      justify-content: center;
+      flex-wrap: wrap;
       gap: 1rem;
+      margin-bottom: 2.5rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.65rem 1.25rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 0.9rem;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
       font-weight: 600;
+      text-decoration: none;
       transition: all 0.2s ease;
     }
 
     .btn-primary {
       background: var(--accent);
-      color: white;
+      color: #fff;
     }
 
     .btn-primary:hover {
       background: #4f46e5;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px var(--accent-glow);
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text);
-      border: 1px solid var(--border);
+    .btn-outline {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
+    .btn-outline:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Section Headings */
+    .section-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    h2.section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    /* Featured Project Card */
+    .featured-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      margin-bottom: 3.5rem;
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .featured-card:hover {
+      border-color: var(--border-hover);
       transform: translateY(-2px);
     }
 
-    footer {
-      margin-top: 2rem;
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient-brand);
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .pill {
       font-size: 0.75rem;
-      color: rgba(148, 163, 184, 0.6);
+      font-family: 'JetBrains Mono', monospace;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+
+    .pill-green {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--accent-emerald);
+      border-color: rgba(16, 185, 129, 0.25);
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Grid Section */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      h1.hero-name { font-size: 2.25rem; }
+    }
+
+    .small-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .small-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .small-card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Badge Placeholder Section */
+    .badge-section {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+      border: 1px dashed rgba(99, 102, 241, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .badge-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <div class="badge">
-      <span class="badge-dot"></span>
-      Empty but Live • Week 4 Milestone
+  <div class="container">
+    
+    <!-- Navigation Header -->
+    <header class="nav-header">
+      <a href="#" class="nav-brand">Shikhar Singh</a>
+      <nav class="nav-links">
+        <a href="#projects">Work</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/shikhar3dev" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="mailto:shikhar3dev@gmail.com" class="btn-small">Get in Touch</a>
+      </nav>
+    </header>
+
+    <!-- Hero Header -->
+    <section class="hero" id="about">
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>FlyRank AI Internship • Machine Learning Track</span>
+      </div>
+
+      <h1 class="hero-name">Shikhar Singh</h1>
+      <p class="hero-title">Machine Learning & Search Intelligence Engineer</p>
+
+      <p class="hero-bio">
+        I build predictive models, search ranking diagnostics, and leak-free data intelligence pipelines. Currently engineering automated organic decay prediction and decision-support content scoring systems on real search warehouse datasets.
+      </p>
+
+      <!-- Working Action Links: LinkedIn, GitHub, CV, Booking -->
+      <div class="hero-actions">
+        <a href="https://github.com/shikhar3dev" target="_blank" class="btn btn-primary" rel="noreferrer">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub Profile
+        </a>
+
+        <a href="https://linkedin.com/in/shikhar3dev" target="_blank" class="btn btn-outline" rel="noreferrer">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+
+        <a href="https://github.com/shikhar3dev" target="_blank" class="btn btn-outline" rel="noreferrer">
+          📄 Download CV / Resume
+        </a>
+
+        <a href="mailto:shikhar3dev@gmail.com?subject=Schedule%20a%20Meeting%20with%20Shikhar" class="btn btn-outline">
+          📅 Book a Meeting
+        </a>
+      </div>
+    </section>
+
+    <!-- Featured Capstone Project -->
+    <div class="section-header" id="projects">
+      <span class="section-tag">Featured Work</span>
+      <h2 class="section-title">Machine Learning Capstone Project</h2>
     </div>
 
-    <h1>Shikhar Singh</h1>
-    <p class="subtitle">AI & Machine Learning Engineer • FlyRank AI Track</p>
+    <article class="featured-card">
+      <div class="card-meta">
+        <span class="pill">FlyRank Capstone</span>
+        <span class="pill">Lane 2: Refresh Opportunity Scoring</span>
+        <span class="pill pill-green">ROC-AUC: 0.978</span>
+        <span class="pill">Precision@50: 100%</span>
+      </div>
 
-    <div class="info-box">
-      <div class="info-row">
-        <span class="info-label">Current Phase</span>
-        <span class="info-value">Week 4: Empty but Live</span>
+      <h3 class="card-title">Predictive Organic Search Decay Modeling & Decision-Support Scoring Engine</h3>
+      
+      <p class="card-desc">
+        A leak-free, time-aware machine learning framework built with DuckDB, LightGBM, and XGBoost to predict 30-day forward organic traffic decay across 1,600+ URLs. It maps predictions into automated Reason Codes (Velocity Cliff, Rank Erosion, CTR Collapse) and ranked refresh playbooks for enterprise marketing teams.
+      </p>
+
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="https://shikhar3dev.github.io/flyrank-ml-capstone/" target="_blank" class="btn btn-primary" rel="noreferrer">
+          Read Deployed Research Paper →
+        </a>
+        <a href="https://github.com/shikhar3dev/flyrank-ml-capstone" target="_blank" class="btn btn-outline" rel="noreferrer">
+          View Capstone Repo
+        </a>
       </div>
-      <div class="info-row">
-        <span class="info-label">Hosting Stack</span>
-        <span class="info-value">GitHub Pages (HTML/CSS)</span>
+    </article>
+
+    <!-- Focus Areas & Technical Stack -->
+    <div class="section-header">
+      <span class="section-tag">Capabilities</span>
+      <h2 class="section-title">Core Engineering Disciplines</h2>
+    </div>
+
+    <div class="grid-2">
+      <div class="small-card">
+        <h3>🤖 Machine Learning & Data Pipelines</h3>
+        <p>
+          High-performance in-memory SQL aggregation using DuckDB, scikit-learn, LightGBM, and XGBoost. Strict temporal leakage prevention, time-aware cross-validation, and calibrated probability modeling.
+        </p>
       </div>
-      <div class="info-row">
-        <span class="info-label">Next Milestone</span>
-        <span class="info-value">Week 5 Build & Portfolio Fill</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Status</span>
-        <span class="info-value" style="color: #10b981;">Ready for Second Device Test</span>
+
+      <div class="small-card">
+        <h3>⚡ Model Context Protocol (MCP) & Agentic AI</h3>
+        <p>
+          Designing autonomous ReAct agent loops, MCP connectors (filesystem, databases, live web probes), and evaluating deterministic workflows versus autonomous agent systems.
+        </p>
       </div>
     </div>
 
-    <div class="links">
-      <a href="https://github.com/shikhar3dev" target="_blank" class="btn btn-primary" rel="noreferrer">
-        GitHub Profile
-      </a>
-      <a href="mailto:shikhar3dev@gmail.com" class="btn btn-secondary">
-        Contact
-      </a>
-    </div>
+    <!-- Official FlyRank Badge Section (Placeholder for Capstone Approval) -->
+    <section class="badge-section">
+      <div class="badge-icon">🏅</div>
+      <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; margin-bottom: 0.5rem;">
+        Official FlyRank Track Completion Badge
+      </h3>
+      <p style="color: var(--text-secondary); max-width: 580px; margin: 0 auto; font-size: 0.9rem;">
+        Reserved space for the official FlyRank Machine Learning & General AI Fluency completion credential badge upon final capstone review.
+      </p>
+    </section>
 
-    <footer>
-      FlyRank General AI Fluency Track • Deployed & Reachable
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>© 2026 Shikhar Singh • Built with HTML5 & Vanilla CSS • Hosted over HTTPS on GitHub Pages</p>
+      <p style="margin-top: 0.4rem;">
+        Data Attribution: Built on the <a href="https://flyrank.ai" target="_blank" rel="noreferrer">FlyRank ML Internship dataset</a>.
+      </p>
     </footer>
+
   </div>
 
 </body>
